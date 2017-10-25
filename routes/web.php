@@ -27,7 +27,7 @@ Route::get('/employeeLogin', 'PagesController@employeeLogin');
 
 Route::resource('contacts', 'ContactsController');
 
-Route::get('send', 'mailController@send');
+
 
 
 
