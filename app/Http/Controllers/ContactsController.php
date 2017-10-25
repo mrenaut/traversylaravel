@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Contact;
+use Mail;
 
 class ContactsController extends Controller
 {
@@ -67,6 +68,12 @@ class ContactsController extends Controller
 	    $contact->message = $request->input('message');
 	    $contact->save();
 	    
+	    
+		    Mail::send(['text'=>'mail'],['name', 'Melissa'], function($message){
+			    $message->to('businesssitewithdatabase@gmail.com', 'to Protec')->subject('Contact from Protec');
+			    $message->from('businesssitewithdatabase@gmail.com', 'from Protec');
+		    }); 
+
 	    return redirect('/contacts/create')->with('success', 'Your message has been sent!');
 	    
 		 
