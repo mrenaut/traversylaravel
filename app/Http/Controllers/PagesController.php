@@ -31,9 +31,9 @@ class PagesController extends Controller
 	
 	//not currently in use. old contact form
 	
-	//public function contactData(){
-	//	return view('pages.contactData');
-	//}
+	public function contactData(){
+		return view('pages.contactData');
+	}
 
 	
 }

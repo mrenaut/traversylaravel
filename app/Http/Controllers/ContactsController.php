@@ -11,7 +11,7 @@ class ContactsController extends Controller
 	
 	public function __construct()
 	{
-		$this->middleware('auth', ['except' => ['create']]);
+		$this->middleware('auth', ['except' => ['create', 'store']]);
 	}
 
 	
@@ -36,6 +36,7 @@ class ContactsController extends Controller
     public function create()
     {
         return view('contacts.create');
+	 
     }
 
     /**
@@ -66,7 +67,7 @@ class ContactsController extends Controller
 	    $contact->message = $request->input('message');
 	    $contact->save();
 	    
-	    return redirect('/contacts')->with('success', 'Your message has been sent!');
+	    return redirect('/contacts/create')->with('success', 'Your message has been sent!');
 	    
 		 
     }
